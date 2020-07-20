@@ -1,6 +1,7 @@
 package com.foo.servicensw.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -37,9 +38,11 @@ public class Vehicle implements Serializable {
 
     private String vin;
 
+    @JsonProperty("tare_weight")
     @Column(name = "tare_weight")
     private String tareWeight;
 
+    @JsonProperty("gross_mass")
     @Column(name = "gross_mass")
     private String grossMass;
 }

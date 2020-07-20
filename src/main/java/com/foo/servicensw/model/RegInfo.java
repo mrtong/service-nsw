@@ -1,6 +1,7 @@
 package com.foo.servicensw.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -34,6 +35,7 @@ public class RegInfo implements Serializable {
     @Column(name = "reg_info_id")
     private Integer regInfoId;
 
+    @JsonProperty("plate_number")
     @Column(name = "plate_number")
     private String plateNumber;
 
