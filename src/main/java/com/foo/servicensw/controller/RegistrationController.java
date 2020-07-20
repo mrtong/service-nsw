@@ -26,6 +26,8 @@ public class RegistrationController {
 
     @GetMapping(path = "/registrations")
     public ResponseEntity<JSONObject> getAllRegistrations() {
+        log.debug("In getAllRegistrations of RegistrationController.");
+
         final List<RegInfo> allRegistrations = registrationService.findAll();
         if (allRegistrations.isEmpty()) {
             log.warn("No Registrations were found.");
