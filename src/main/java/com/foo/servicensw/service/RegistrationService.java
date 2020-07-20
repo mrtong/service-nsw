@@ -1,5 +1,6 @@
 package com.foo.servicensw.service;
 
+import com.foo.servicensw.model.RegInfo;
 import com.foo.servicensw.model.Registration;
 import com.foo.servicensw.repo.RegistrationRepo;
 import lombok.extern.slf4j.Slf4j;
@@ -16,8 +17,8 @@ public class RegistrationService {
         this.registrationRepo = registrationRepo;
     }
 
-    public List<Registration> findAll() {
-        final List<Registration> allRegistrations = registrationRepo.findAll();
+    public List<RegInfo> findAll() {
+        List<RegInfo> allRegistrations = registrationRepo.findAll();
         return allRegistrations;
     }
 }

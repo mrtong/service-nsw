@@ -1,8 +1,9 @@
 package com.foo.servicensw.controller;
 
-import com.foo.servicensw.model.Registration;
+import com.foo.servicensw.model.RegInfo;
 import com.foo.servicensw.service.RegistrationService;
 import lombok.extern.slf4j.Slf4j;
+import org.json.simple.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,9 +24,11 @@ public class RegistrationController {
     }
 
     @GetMapping(path = "/registrations")
-    public ResponseEntity<List<Registration>> getAllAccounts() {
-        final  List<Registration> allRegistrations = registrationService.findAll();
+    public ResponseEntity<JSONObject> getAllAccounts() {
+        final List<RegInfo> allRegistrations = registrationService.findAll();
+        JSONObject jsonObject = new JSONObject();
 
-        return new ResponseEntity<>(allRegistrations, HttpStatus.OK);
+        jsonObject.put("registrations", allRegistrations);
+        return new ResponseEntity<>(jsonObject, HttpStatus.OK);
     }
 }
