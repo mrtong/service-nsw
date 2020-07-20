@@ -1,6 +1,6 @@
 # service-nsw
 How to run?
-1. git clone https://github.com/mrtong/user-management.git
+1. unzip the code to a folder
 2. make sure you have maven installed
 
 `mvn clean install`
