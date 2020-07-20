@@ -1,7 +1,6 @@
 package com.foo.servicensw.service;
 
 import com.foo.servicensw.model.RegInfo;
-import com.foo.servicensw.model.Registration;
 import com.foo.servicensw.repo.RegistrationRepo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -11,14 +10,19 @@ import java.util.List;
 @Service
 @Slf4j
 public class RegistrationService {
-    private RegistrationRepo registrationRepo;
+    private final RegistrationRepo registrationRepo;
 
     public RegistrationService(final RegistrationRepo registrationRepo) {
         this.registrationRepo = registrationRepo;
     }
 
     public List<RegInfo> findAll() {
-        List<RegInfo> allRegistrations = registrationRepo.findAll();
+        log.debug("In findAll(...) of RegistrationService Now.");
+
+        final List<RegInfo> allRegistrations = registrationRepo.findAll();
+
+        log.debug("Complete findAll(...) calling.");
+
         return allRegistrations;
     }
 }

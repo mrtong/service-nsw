@@ -24,7 +24,7 @@ public class Insurer implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonIgnore
-    @Column(name="insurer_id")
+    @Column(name = "insurer_id")
     private Integer insurerId;
 
     private String name;

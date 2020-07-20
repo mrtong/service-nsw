@@ -1,5 +1,6 @@
 package com.foo.servicensw.controller;
 
+import com.foo.servicensw.exception.RegistrationNotFoundException;
 import com.foo.servicensw.model.RegInfo;
 import com.foo.servicensw.service.RegistrationService;
 import lombok.extern.slf4j.Slf4j;
@@ -17,18 +18,26 @@ import java.util.List;
 @RequestMapping(path = "/")
 public class RegistrationController {
 
-    private RegistrationService registrationService;
+    private final RegistrationService registrationService;
 
     public RegistrationController(final RegistrationService registrationService) {
         this.registrationService = registrationService;
     }
 
     @GetMapping(path = "/registrations")
-    public ResponseEntity<JSONObject> getAllAccounts() {
+    public ResponseEntity<JSONObject> getAllRegistrations() {
         final List<RegInfo> allRegistrations = registrationService.findAll();
-        JSONObject jsonObject = new JSONObject();
+        if (allRegistrations.isEmpty()) {
+            log.warn("No Registrations were found.");
+            throw new RegistrationNotFoundException("No Registrations were found.");
+        }
+
+        log.debug("Successfully found [{}] of registrations.", allRegistrations.size());
+
+        final JSONObject jsonObject = new JSONObject();
 
         jsonObject.put("registrations", allRegistrations);
+
         return new ResponseEntity<>(jsonObject, HttpStatus.OK);
     }
 }

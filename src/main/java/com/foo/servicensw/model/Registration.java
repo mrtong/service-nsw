@@ -25,14 +25,14 @@ public class Registration implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonIgnore
-    @Column(name="reg_id")
+    @Column(name = "reg_id")
     private Integer regId;
 
-    @Column(name="expired")
+    @Column(name = "expired")
     @JsonProperty("expired")
     private boolean isExpired;
 
-    @Column(name="expiry_date")
+    @Column(name = "expiry_date")
     private String expiry_date;
 
 }

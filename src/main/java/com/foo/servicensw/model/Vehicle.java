@@ -24,7 +24,7 @@ public class Vehicle implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonIgnore
-    @Column(name="vehicle_id")
+    @Column(name = "vehicle_id")
     private Integer vehicleId;
 
     private String type;
@@ -37,9 +37,9 @@ public class Vehicle implements Serializable {
 
     private String vin;
 
-    @Column(name="tare_weight")
+    @Column(name = "tare_weight")
     private String tareWeight;
 
-    @Column(name="gross_mass")
+    @Column(name = "gross_mass")
     private String grossMass;
 }

@@ -31,10 +31,10 @@ public class RegInfo implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonIgnore
-    @Column(name="reg_info_id")
+    @Column(name = "reg_info_id")
     private Integer regInfoId;
 
-    @Column(name="plate_number")
+    @Column(name = "plate_number")
     private String plateNumber;
 
     @OneToOne(cascade = {PERSIST, REMOVE, MERGE}, fetch = FetchType.EAGER)
