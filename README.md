@@ -8,6 +8,9 @@ How to run?
 `java -jar service-nsw-0.0.1-SNAPSHOT.jar`
 
 In postman, run this for get query
+
+`localhost:9999/registrations`
+
 <img src="https://github.com/mrtong/service-nsw/blob/master/screen-dumps/query%20result.png" width="70%" height="60%"/>
 
 
